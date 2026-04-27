@@ -7,13 +7,7 @@
   <title>Ocean Docs - Terminal for Agentic Development</title>
   <meta name="description"
     content="Documentation for Ocean, a desktop terminal built for developers who work with AI coding agents.">
-  <meta name="keywords"
-    content="Ocean documentation, terminal docs, AI agent guide, agentic development manual, session isolation docs">
-  <meta name="author" content="Ocean Team">
-
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://getocean.dev/docs">
+  <meta property="og:url" content="https://docs.getocean.dev">
   <meta property="og:title" content="Ocean Docs - Terminal for Agentic Development">
   <meta property="og:description"
     content="Detailed documentation for Ocean terminal features, shortcuts, and multi-agent workflows.">
@@ -21,800 +15,24 @@
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://getocean.dev/docs">
+  <meta property="twitter:url" content="https://docs.getocean.dev">
   <meta name="twitter:title" content="Ocean Docs - Terminal for Agentic Development">
   <meta name="twitter:description"
     content="Detailed documentation for Ocean terminal features, shortcuts, and multi-agent workflows.">
   <meta name="twitter:image" content="https://getocean.dev/home.png">
 
   <!-- Canonical -->
-  <link rel="canonical" href="https://getocean.dev/docs">
+  <link rel="canonical" href="https://docs.getocean.dev">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet">
-  <style>
-    :root {
-      --bg: #030303;
-      --surface: rgba(15, 15, 18, 0.6);
-      --surface-2: rgba(25, 25, 30, 0.6);
-      --border: rgba(255, 255, 255, 0.08);
-      --border-hover: rgba(255, 255, 255, 0.15);
-      --text: #ffffff;
-      --muted: #a1a1aa;
-      --dim: #71717a;
-      --accent: #06b6d4;
-      --accent-2: #3b82f6;
-      --accent-glow: rgba(6, 182, 212, 0.2);
-      --green: #10b981;
-      --red: #ef4444;
-      --font-sans: 'Inter', sans-serif;
-      --font-heading: 'Outfit', sans-serif;
-      --font-mono: 'JetBrains Mono', monospace;
-      --sidebar-width: 280px;
-      --nav-height: 64px;
-      --glass-blur: 24px;
-    }
-
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: calc(var(--nav-height) + 32px);
-    }
-
-    body {
-      font-family: var(--font-sans);
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-      font-size: 15px;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      overflow-x: hidden;
-    }
-
-    /* ── Background Effects ──────────────────── */
-    .bg-glow {
-      position: fixed;
-      top: -200px;
-      left: 20%;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(6, 182, 212, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
-      z-index: -1;
-      pointer-events: none;
-      border-radius: 50%;
-    }
-
-    .bg-glow-2 {
-      position: fixed;
-      bottom: -200px;
-      right: 10%;
-      width: 800px;
-      height: 800px;
-      background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, rgba(0, 0, 0, 0) 70%);
-      z-index: -1;
-      pointer-events: none;
-      border-radius: 50%;
-    }
-
-    /* ── Animations ──────────────────────────── */
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .animate-fade-up {
-      animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-
-    /* ── Nav ─────────────────────────────────── */
-    .nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: var(--nav-height);
-      background: rgba(3, 3, 3, 0.7);
-      backdrop-filter: blur(var(--glass-blur));
-      -webkit-backdrop-filter: blur(var(--glass-blur));
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 32px;
-      z-index: 100;
-    }
-
-    .nav-left {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      color: var(--text);
-      font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: 20px;
-      letter-spacing: -0.02em;
-      transition: transform 0.2s;
-    }
-
-    .nav-logo:hover {
-      transform: scale(1.02);
-    }
-
-    .nav-logo svg {
-      width: 32px;
-      height: 32px;
-    }
-
-    .nav-logo span {
-      background: linear-gradient(135deg, #fff 0%, #a1a1aa 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 500;
-      transition: color 0.2s;
-      font-family: var(--font-heading);
-      letter-spacing: 0.02em;
-    }
-
-    .nav-links a:hover {
-      color: var(--text);
-    }
-
-    .hamburger {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 4px;
-      color: var(--text);
-    }
-
-    .hamburger svg {
-      width: 24px;
-      height: 24px;
-    }
-
-    /* ── Layout ──────────────────────────────── */
-    .layout {
-      display: flex;
-      padding-top: var(--nav-height);
-      min-height: 100vh;
-    }
-
-    .sidebar {
-      position: fixed;
-      top: var(--nav-height);
-      left: 0;
-      bottom: 0;
-      width: var(--sidebar-width);
-      background: linear-gradient(to right, rgba(8, 8, 10, 0.6) 0%, rgba(10, 10, 12, 0.4) 100%);
-      backdrop-filter: blur(var(--glass-blur));
-      -webkit-backdrop-filter: blur(var(--glass-blur));
-      border-right: 1px solid var(--border);
-      overflow-y: auto;
-      padding: 32px 16px;
-      z-index: 50;
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .sidebar::-webkit-scrollbar {
-      width: 4px;
-    }
-
-    .sidebar::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    .sidebar::-webkit-scrollbar-thumb {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 4px;
-    }
-
-    .sidebar::-webkit-scrollbar-thumb:hover {
-      background: rgba(255, 255, 255, 0.2);
-    }
-
-    .sidebar-section {
-      margin-bottom: 24px;
-    }
-
-    .sidebar-section-title {
-      font-family: var(--font-heading);
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--dim);
-      padding: 0 12px 8px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .sidebar-section-title::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(90deg, rgba(255, 255, 255, 0.05) 0%, transparent 100%);
-    }
-
-    .sidebar a {
-      display: block;
-      padding: 8px 12px 8px 16px;
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 400;
-      border-radius: 8px;
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-      line-height: 1.5;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .sidebar a::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%) scaleY(0);
-      width: 3px;
-      height: 60%;
-      background: linear-gradient(180deg, var(--accent), var(--accent-2));
-      border-radius: 0 4px 4px 0;
-      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: 0 0 10px var(--accent-glow);
-    }
-
-    .sidebar a:hover {
-      color: var(--text);
-      background: linear-gradient(90deg, rgba(255, 255, 255, 0.03) 0%, transparent 100%);
-      transform: translateX(4px);
-    }
-
-    .sidebar a.active {
-      color: var(--text);
-      background: linear-gradient(90deg, rgba(6, 182, 212, 0.08) 0%, transparent 100%);
-      font-weight: 500;
-      transform: translateX(4px);
-    }
-
-    .sidebar a.active::before {
-      transform: translateY(-50%) scaleY(1);
-    }
-
-    .sidebar-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(4px);
-      z-index: 40;
-      transition: opacity 0.3s;
-    }
-
-    /* ── Content ─────────────────────────────── */
-    .content {
-      margin-left: var(--sidebar-width);
-      flex: 1;
-      min-width: 0;
-      padding: 56px 64px 96px;
-      max-width: 1000px;
-    }
-
-    /* ── Typography ──────────────────────────── */
-    h1,
-    h2,
-    h3,
-    h4 {
-      font-family: var(--font-heading);
-      color: var(--text);
-    }
-
-    h1 {
-      font-size: 3rem;
-      font-weight: 800;
-      letter-spacing: -0.04em;
-      line-height: 1.1;
-      margin: 48px 0 24px;
-      background: linear-gradient(135deg, #fff 0%, #a1a1aa 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    h1:first-child {
-      margin-top: 0;
-    }
-
-    h2 {
-      font-size: 2rem;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      line-height: 1.2;
-      margin: 64px 0 24px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    h3 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      line-height: 1.4;
-      margin: 40px 0 16px;
-    }
-
-    p {
-      margin: 16px 0;
-      color: var(--muted);
-      font-size: 1.05rem;
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-      transition: color 0.2s, text-shadow 0.2s;
-    }
-
-    a:hover {
-      color: #fff;
-      text-shadow: 0 0 12px var(--accent-glow);
-    }
-
-    strong {
-      font-weight: 600;
-      color: var(--text);
-    }
-
-    hr {
-      border: none;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--border), transparent);
-      margin: 64px 0;
-    }
-
-    ul,
-    ol {
-      margin: 16px 0;
-      padding-left: 24px;
-      color: var(--muted);
-    }
-
-    li {
-      margin: 8px 0;
-      padding-left: 8px;
-    }
-
-    li::marker {
-      color: var(--accent);
-    }
-
-    /* ── Code & Pre ──────────────────────────── */
-    code {
-      font-family: var(--font-mono);
-      font-size: 0.85em;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border);
-      padding: 3px 6px;
-      border-radius: 6px;
-      color: var(--text);
-    }
-
-    pre {
-      margin: 24px 0;
-      padding: 24px;
-      background: #09090b;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 12px;
-      overflow-x: auto;
-      line-height: 1.6;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-      position: relative;
-    }
-
-    pre::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    }
-
-    pre code {
-      background: none;
-      border: none;
-      padding: 0;
-      font-size: 14px;
-      color: #e4e4e7;
-    }
-
-    .copy-btn {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      color: var(--muted);
-      padding: 6px 8px;
-      font-family: var(--font-sans);
-      font-size: 12px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.2s;
-      opacity: 0;
-      backdrop-filter: blur(4px);
-    }
-
-    pre:hover .copy-btn {
-      opacity: 1;
-    }
-
-    .copy-btn:hover {
-      background: rgba(255, 255, 255, 0.1);
-      color: var(--text);
-      border-color: rgba(255, 255, 255, 0.2);
-    }
-
-    .copy-btn svg {
-      width: 14px;
-      height: 14px;
-    }
-
-    /* ── Tables ──────────────────────────────── */
-    .table-wrap {
-      overflow-x: auto;
-      margin: 32px 0;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: var(--surface);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 15px;
-    }
-
-    thead th {
-      background: rgba(0, 0, 0, 0.2);
-      padding: 16px 20px;
-      text-align: left;
-      font-weight: 600;
-      color: var(--text);
-      font-family: var(--font-heading);
-      letter-spacing: 0.02em;
-      border-bottom: 1px solid var(--border);
-    }
-
-    tbody td {
-      padding: 14px 20px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-      color: var(--muted);
-    }
-
-    tbody tr:last-child td {
-      border-bottom: none;
-    }
-
-    tbody tr {
-      transition: background 0.2s;
-    }
-
-    tbody tr:hover {
-      background: rgba(255, 255, 255, 0.02);
-    }
-
-    /* ── kbd ─────────────────────────────────── */
-    kbd {
-      font-family: var(--font-mono);
-      font-size: 0.85em;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-bottom-width: 2px;
-      padding: 4px 8px;
-      border-radius: 6px;
-      color: var(--text);
-      white-space: nowrap;
-      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.2);
-    }
-
-    /* ── Agent badges ────────────────────────── */
-    .agent-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin: 24px 0;
-    }
-
-    .agent-badge {
-      display: inline-flex;
-      align-items: center;
-      padding: 8px 16px;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--text);
-      gap: 8px;
-      transition: all 0.3s;
-      backdrop-filter: blur(8px);
-    }
-
-    .agent-badge:hover {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: rgba(255, 255, 255, 0.2);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    }
-
-    .agent-badge::before {
-      content: '';
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 10px var(--accent);
-    }
-
-    /* ── Intro hero ──────────────────────────── */
-    .intro-hero {
-      margin-bottom: 64px;
-    }
-
-    .intro-hero p {
-      font-size: 1.15rem;
-      color: var(--muted);
-      line-height: 1.7;
-      max-width: 720px;
-      margin-bottom: 32px;
-    }
-
-    .waitlist-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      padding: 14px 32px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #fff;
-      font-weight: 600;
-      font-family: var(--font-heading);
-      font-size: 16px;
-      border-radius: 12px;
-      text-decoration: none;
-      transition: all 0.3s;
-      box-shadow: 0 10px 30px rgba(6, 182, 212, 0.3);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .waitlist-cta::after {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(transparent, rgba(255, 255, 255, 0.2), transparent);
-      transform: rotate(45deg) translateY(-100%);
-      transition: transform 0.6s ease;
-    }
-
-    .waitlist-cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 15px 35px rgba(6, 182, 212, 0.4);
-      color: #fff;
-    }
-
-    .waitlist-cta:hover::after {
-      transform: rotate(45deg) translateY(100%);
-    }
-
-    /* ── Articles grid ───────────────────────── */
-    .articles-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 24px;
-      margin: 32px 0;
-    }
-
-    .article-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 24px;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      backdrop-filter: blur(12px);
-      display: flex;
-      flex-direction: column;
-    }
-
-    .article-card:hover {
-      border-color: rgba(255, 255, 255, 0.2);
-      transform: translateY(-4px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-      background: rgba(25, 25, 30, 0.8);
-    }
-
-    .article-card h4 {
-      font-size: 18px;
-      margin-bottom: 8px;
-    }
-
-    .article-card h4 a {
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    .article-card h4 a:hover {
-      color: var(--accent);
-      text-shadow: none;
-    }
-
-    .article-card .for {
-      font-size: 13px;
-      color: var(--accent);
-      font-weight: 500;
-      margin-bottom: 12px;
-      font-family: var(--font-mono);
-      letter-spacing: 0.05em;
-    }
-
-    .article-card p {
-      font-size: 14px;
-      margin: 0;
-      flex-grow: 1;
-    }
-
-    /* ── Version table highlight ─────────────── */
-    .version-badge {
-      display: inline-block;
-      padding: 4px 10px;
-      background: rgba(6, 182, 212, 0.1);
-      color: var(--accent);
-      border-radius: 6px;
-      font-size: 13px;
-      font-weight: 600;
-      font-family: var(--font-mono);
-      border: 1px solid rgba(6, 182, 212, 0.2);
-    }
-
-    /* ── Footer ──────────────────────────────── */
-    .footer {
-      margin-top: 80px;
-      padding-top: 40px;
-      border-top: 1px solid var(--border);
-      text-align: center;
-    }
-
-    .footer p {
-      color: var(--dim);
-      font-size: 14px;
-    }
-
-    .footer a {
-      color: var(--muted);
-      margin: 0 12px;
-      font-weight: 500;
-    }
-
-    .footer a:hover {
-      color: var(--accent);
-    }
-
-    /* ── Responsive ──────────────────────────── */
-    @media (max-width: 1024px) {
-      .content {
-        padding: 48px 40px 80px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .hamburger {
-        display: block;
-      }
-
-      .nav-links {
-        display: flex;
-        position: absolute;
-        top: var(--nav-height);
-        left: 0;
-        right: 0;
-        background: rgba(5, 5, 5, 0.95);
-        backdrop-filter: blur(20px);
-        flex-direction: column;
-        padding: 24px;
-        gap: 20px;
-        border-bottom: 1px solid var(--border);
-        transform: translateY(-150%);
-        transition: transform 0.3s;
-        z-index: -1;
-      }
-
-      .nav-links.show {
-        transform: translateY(0);
-      }
-
-      .sidebar {
-        transform: translateX(-100%);
-        width: 300px;
-        background: rgba(10, 10, 12, 0.95);
-      }
-
-      .sidebar.open {
-        transform: translateX(0);
-      }
-
-      .sidebar-overlay.show {
-        display: block;
-        opacity: 1;
-      }
-
-      .content {
-        margin-left: 0;
-        padding: 32px 24px 64px;
-      }
-
-      h1 {
-        font-size: 2.2rem;
-      }
-
-      h2 {
-        font-size: 1.5rem;
-      }
-
-      .articles-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-  <div class="bg-glow"></div>
-  <div class="bg-glow-2"></div>
 
   <!-- ── Nav ────────────────────────────────────────── -->
   <nav class="nav">
@@ -827,17 +45,7 @@
         </svg>
       </button>
       <a href="#" class="nav-logo">
-        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="32" height="32" rx="8" fill="url(#logo-grad)" />
-          <path d="M8 12 L16 8 L24 12 L24 20 L16 24 L8 20Z" stroke="#fff" stroke-width="1.5" fill="none" />
-          <circle cx="16" cy="16" r="3" fill="#fff" opacity="0.9" />
-          <defs>
-            <linearGradient id="logo-grad" x1="0" y1="0" x2="32" y2="32">
-              <stop stop-color="#06b6d4" />
-              <stop offset="1" stop-color="#3b82f6" />
-            </linearGradient>
-          </defs>
-        </svg>
+        <img src="favicon.png" alt="Ocean Logo" class="nav-logo-img">
         <span>Ocean Docs</span>
       </a>
     </div>
@@ -895,19 +103,19 @@
     <main class="content">
 
       <!-- Intro -->
-      <section class="intro-hero animate-fade-up" id="ocean-documentation">
+      <section class="intro-hero" id="ocean-documentation">
         <h1>Ocean Documentation</h1>
         <p><strong>Ocean</strong> is a desktop terminal built for developers who work with AI coding agents. It
           organizes your terminal sessions into workspaces, tracks what each agent is doing, and gives you split panes,
-          git integration, and command history &mdash; all in one beautiful window.</p>
+          git integration, and command history &mdash; all in one window.</p>
         <a href="https://forms.gle/4RQFThD8KF6Vu1Su6" class="waitlist-cta" target="_blank" rel="noopener">
           Join the Waitlist
-          <svg width="18" height="18" viewBox="0 0 16 16" fill="none">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
               stroke-linejoin="round" />
           </svg>
         </a>
-        <p style="margin-top:16px; font-size:13px; color:var(--dim);">Ocean is in private beta for macOS (Apple
+        <p style="margin-top:12px; font-size:13px; color:var(--dim);">Ocean is in private beta for macOS (Apple
           Silicon).</p>
       </section>
 
@@ -1261,7 +469,7 @@
         <li>Type to search</li>
         <li><strong>Enter</strong> to re-run a command</li>
         <li>Exit codes shown: <span style="color:var(--green);">&#x2713;</span> success, <span
-            style="color:var(--red);">&#x2717;</span> failure with code</li>
+            style="color:#ef4444;">&#x2717;</span> failure with code</li>
       </ul>
 
       <hr>
@@ -1287,7 +495,7 @@
         <span class="agent-badge">Codex</span>
         <span class="agent-badge">Aider</span>
         <span class="agent-badge">Cursor</span>
-        <span class="agent-badge">Copilot</span>
+        <span class="agent-badge">GitHub Copilot</span>
         <span class="agent-badge">Cody</span>
         <span class="agent-badge">Gemini</span>
         <span class="agent-badge">Devin</span>
@@ -1433,7 +641,7 @@
       <h2 id="agent-notifications">Agent Notifications</h2>
       <p>Ocean monitors AI agents running in your sessions and notifies you when they need input:</p>
       <ul>
-        <li>Pane header turns <strong style="color:#f59e0b;">yellow</strong> after 30 seconds of agent waiting</li>
+        <li>Pane header turns <strong style="color:#eab308;">yellow</strong> after 30 seconds of agent waiting</li>
         <li>Desktop notification if the window is not focused</li>
         <li>View all agent states in the <strong>Agent Dashboard</strong> (<kbd>Cmd+Shift+J</kbd>)</li>
       </ul>
@@ -1477,25 +685,32 @@
 
       <!-- Articles -->
       <h2 id="articles">Articles</h2>
-      <p>Understand Ocean from the perspective that matters to you. <a
-          href="https://ocean-app.web.app/articles.html">Browse all articles &rarr;</a></p>
+      <p>Understand Ocean from the perspective that matters to you. <a href="https://ocean-app.web.app/articles.html"
+          style="color:var(--accent)">Browse all articles &rarr;</a></p>
 
       <div class="articles-grid">
         <div class="article-card">
           <h4><a href="https://github.com/viveky259259/ocean-releases/releases/tag/v0.9.5">What's New in v0.9.5</a></h4>
           <div class="for">Release Notes &middot; April 6, 2026</div>
           <p>RecordingFormat, Agent API &amp; Voice TTS settings types, syncFromSource import — 1,184 tests passing.</p>
-        </div>
-        <div class="article-card">
           <h4><a href="https://github.com/viveky259259/ocean-releases/releases/tag/v0.9.4">What's New in v0.9.4</a></h4>
-          <div class="for">Release Notes &middot; April 4, 2026</div>
           <p>Vendored OpenSSL to fix Team ID mismatch crash on signed builds, release pipeline hardening.</p>
-        </div>
-        <div class="article-card">
           <h4><a href="https://viveky259259.github.io/ocean-releases/articles/ocean-v0-9-2-release">What's New in
               v0.9.2</a></h4>
           <div class="for">Release Notes &middot; April 3, 2026</div>
           <p>Shell passthrough, Ocean Agent API (MCP), git fetch_remote, sync commands, security hardening</p>
+        </div>
+        <div class="article-card">
+          <h4><a href="https://viveky259259.github.io/ocean-releases/articles/ocean-v0-9-1-release">What's New in
+              v0.9.1</a></h4>
+          <div class="for">Release Notes &middot; April 2, 2026</div>
+          <p>Claude OAuth usage panel, PTY deadlock fix, OAuth poller guard fixes, E2E test suite restored</p>
+        </div>
+        <div class="article-card">
+          <h4><a href="https://viveky259259.github.io/ocean-releases/articles/ocean-v0-8-0-release">What's New in
+              v0.8.0</a></h4>
+          <div class="for">Release Notes &middot; April 1, 2026</div>
+          <p>Discard session changes, file picker, git index auto-repair, 10 conflict/merge fixes</p>
         </div>
         <div class="article-card">
           <h4><a href="https://viveky259259.github.io/ocean-releases/articles/ocean-for-ai-developers">Ocean for AI
@@ -1514,6 +729,12 @@
               Product Managers</a></h4>
           <div class="for">For non-technical stakeholders</div>
           <p>Business impact, team visibility, cost comparison, ROI</p>
+        </div>
+        <div class="article-card">
+          <h4><a href="https://viveky259259.github.io/ocean-releases/articles/ocean-for-enterprises">Ocean for
+              Enterprises</a></h4>
+          <div class="for">For IT, security &amp; engineering leadership</div>
+          <p>Governance, audit trail, managed config, deployment, ROI framework</p>
         </div>
       </div>
 
@@ -1692,99 +913,21 @@
         </table>
       </div>
 
-      <div class="footer">
-        <p>
-          Ocean &mdash; Terminal for Agentic Development<br><br>
-          <a href="https://ocean-app.web.app">ocean-app.web.app</a>
-          <a href="https://github.com/viveky259259/ocean-releases">GitHub</a>
-          <a href="https://joinocean.web.app">Join the Waitlist</a>
+      <div style="margin-top:48px; padding-top:32px; border-top:1px solid var(--border); text-align:center;">
+        <p style="color:var(--dim); font-size:13px;">
+          Ocean &mdash; Terminal for Agentic Development<br>
+          <a href="https://docs.getocean.dev">docs.getocean.dev</a> &nbsp;&middot;&nbsp;
+          <a href="https://github.com/viveky259259/ocean-releases" style="color:var(--accent);">GitHub</a>
+          &nbsp;&middot;&nbsp;
+          <a href="https://joinocean.web.app" style="color:var(--accent);">Join the Waitlist</a>
         </p>
       </div>
 
     </main>
   </div>
 
-  <script>
-    // ── Sidebar toggle (mobile) ──
-    function toggleSidebar() {
-      const sidebar = document.getElementById('sidebar');
-      const overlay = document.getElementById('sidebarOverlay');
-      sidebar.classList.toggle('open');
-      overlay.classList.toggle('show');
-    }
-
-    function closeSidebar() {
-      document.getElementById('sidebar').classList.remove('open');
-      document.getElementById('sidebarOverlay').classList.remove('show');
-      document.getElementById('navLinks').classList.remove('show');
-    }
-
-    document.querySelectorAll('.sidebar a').forEach(link => {
-      link.addEventListener('click', () => {
-        if (window.innerWidth <= 768) closeSidebar();
-      });
-    });
-
-    document.querySelector('.hamburger').addEventListener('click', (e) => {
-      document.getElementById('navLinks').classList.toggle('show');
-    });
-
-    // ── Active section highlighting ──
-    const sections = document.querySelectorAll('h2[id]');
-    const sidebarLinks = document.querySelectorAll('.sidebar a');
-
-    const observerOptions = {
-      root: null,
-      rootMargin: '-100px 0px -70% 0px',
-      threshold: 0
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const id = entry.target.getAttribute('id');
-          sidebarLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === '#' + id) {
-              link.classList.add('active');
-            }
-          });
-        }
-      });
-    }, observerOptions);
-
-    sections.forEach(section => observer.observe(section));
-
-    window.addEventListener('load', () => {
-      if (!window.location.hash) {
-        const firstLink = document.querySelector('.sidebar a');
-        if (firstLink) firstLink.classList.add('active');
-      }
-
-      // Add copy buttons to all pre blocks
-      document.querySelectorAll('pre').forEach(pre => {
-        const btn = document.createElement('button');
-        btn.className = 'copy-btn';
-        btn.setAttribute('aria-label', 'Copy code');
-        btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> <span>Copy</span>`;
-        
-        btn.addEventListener('click', () => {
-          const code = pre.querySelector('code');
-          if (!code) return;
-          
-          navigator.clipboard.writeText(code.innerText).then(() => {
-            const originalHTML = btn.innerHTML;
-            btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> <span style="color: #10b981;">Copied!</span>`;
-            setTimeout(() => {
-              btn.innerHTML = originalHTML;
-            }, 2000);
-          });
-        });
-        
-        pre.appendChild(btn);
-      });
-    });
-  </script>
+  <script src="strings.js"></script>
+  <script src="main.js"></script>
 </body>
 
 </html>
