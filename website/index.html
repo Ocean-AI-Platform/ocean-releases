@@ -9,7 +9,7 @@
     (function () {
       try {
         document.documentElement.setAttribute('data-theme', localStorage.getItem('ocean-theme') || 'dark');
-      } catch (e) {}
+      } catch (e) { }
     })();
   </script>
   <title>Ocean — The Native Platform for AI Agents</title>
@@ -43,7 +43,13 @@
     rel="stylesheet">
   <link rel="icon" type="image/png" href="favicon.png">
   <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     :root {
       --bg: #09090b;
@@ -69,7 +75,7 @@
       --max-w: 1200px;
       --section-gap: 10rem;
       --nav-bg: rgba(9, 9, 11, 0.85);
-      --shadow-card: 0 40px 80px rgba(0,0,0,0.45);
+      --shadow-card: 0 40px 80px rgba(0, 0, 0, 0.45);
       --btn-primary-hover: #ffffff;
     }
 
@@ -93,11 +99,13 @@
       --red: #dc2626;
       --purple: #7c3aed;
       --nav-bg: rgba(255, 255, 255, 0.85);
-      --shadow-card: 0 20px 40px rgba(0,0,0,0.08);
+      --shadow-card: 0 20px 40px rgba(0, 0, 0, 0.08);
       --btn-primary-hover: #27272a;
     }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       font-family: var(--sans);
@@ -109,8 +117,18 @@
     }
 
     /* -- Utilities -- */
-    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 2rem; }
-    .section { position: relative; z-index: 1; padding: var(--section-gap) 0; }
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section {
+      position: relative;
+      z-index: 1;
+      padding: var(--section-gap) 0;
+    }
+
     .section-label {
       font-family: var(--mono);
       font-size: 0.7rem;
@@ -120,6 +138,7 @@
       color: var(--accent);
       margin-bottom: 1.25rem;
     }
+
     .section-title {
       font-size: clamp(1.75rem, 4vw, 2.75rem);
       font-weight: 700;
@@ -127,12 +146,14 @@
       line-height: 1.12;
       margin-bottom: 1.25rem;
     }
+
     .section-desc {
       font-size: 1.05rem;
       color: var(--text-muted);
       max-width: 560px;
       line-height: 1.75;
     }
+
     .btn {
       display: inline-flex;
       align-items: center;
@@ -148,26 +169,33 @@
       transition: all 0.25s ease;
       letter-spacing: -0.01em;
     }
+
     .btn-primary {
       background: var(--text);
       color: var(--bg);
     }
+
     .btn-primary:hover {
       background: var(--btn-primary-hover);
-      box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
       transform: translateY(-1px);
     }
+
     .btn-secondary {
       background: transparent;
       color: var(--text-muted);
       border: 1px solid var(--border);
     }
+
     .btn-secondary:hover {
       border-color: var(--border-hover);
       color: var(--text);
       background: var(--surface);
     }
-    .btn:active { transform: scale(0.98) translateY(0); }
+
+    .btn:active {
+      transform: scale(0.98) translateY(0);
+    }
 
     /* -- Scroll reveal -- */
     .reveal {
@@ -175,6 +203,7 @@
       transform: translateY(24px);
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
+
     .reveal.visible {
       opacity: 1;
       transform: translateY(0);
@@ -196,7 +225,11 @@
       border-bottom: 1px solid transparent;
       transition: border-color 0.3s;
     }
-    nav.scrolled { border-bottom-color: var(--border); }
+
+    nav.scrolled {
+      border-bottom-color: var(--border);
+    }
+
     .nav-logo {
       display: flex;
       align-items: center;
@@ -206,8 +239,19 @@
       color: var(--text);
       text-decoration: none;
     }
-    .nav-logo img { width: 28px; height: 28px; border-radius: 6px; }
-    .nav-links { display: flex; align-items: center; gap: 1.75rem; }
+
+    .nav-logo img {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+    }
+
     .nav-links a {
       color: var(--text-muted);
       text-decoration: none;
@@ -215,7 +259,11 @@
       font-weight: 500;
       transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--text); }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
     .nav-cta {
       padding: 0.45rem 1.15rem !important;
       font-size: 0.8rem !important;
@@ -224,10 +272,12 @@
       color: var(--bg) !important;
       font-weight: 600 !important;
     }
+
     .nav-cta:hover {
       background: var(--btn-primary-hover) !important;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.15) !important;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15) !important;
     }
+
     .mobile-toggle {
       display: none;
       background: none;
@@ -250,14 +300,27 @@
       cursor: pointer;
       transition: color 0.2s, border-color 0.2s, background 0.2s;
     }
+
     .theme-toggle:hover {
       color: var(--text);
       border-color: var(--border-hover);
     }
-    .theme-toggle .icon-sun { display: none; }
-    .theme-toggle .icon-moon { display: block; }
-    [data-theme="light"] .theme-toggle .icon-sun { display: block; }
-    [data-theme="light"] .theme-toggle .icon-moon { display: none; }
+
+    .theme-toggle .icon-sun {
+      display: none;
+    }
+
+    .theme-toggle .icon-moon {
+      display: block;
+    }
+
+    [data-theme="light"] .theme-toggle .icon-sun {
+      display: block;
+    }
+
+    [data-theme="light"] .theme-toggle .icon-moon {
+      display: none;
+    }
 
     /* -- Hero -- */
     .hero {
@@ -267,12 +330,14 @@
       max-width: var(--max-w);
       margin: 0 auto;
     }
+
     .hero-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 4rem;
       align-items: center;
     }
+
     .hero-badge {
       display: inline-flex;
       align-items: center;
@@ -287,13 +352,26 @@
       margin-bottom: 1.5rem;
       font-family: var(--mono);
     }
+
     .hero-badge .dot {
-      width: 6px; height: 6px;
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
       background: var(--accent);
       animation: pulse 2s ease-in-out infinite;
     }
-    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.4;
+      }
+    }
 
     .hero h1 {
       font-size: clamp(2.5rem, 5.5vw, 3.75rem);
@@ -302,12 +380,14 @@
       letter-spacing: -0.035em;
       margin-bottom: 1.5rem;
     }
+
     .hero h1 .gradient {
       background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 60%, #818cf8 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
+
     .hero-desc {
       font-size: 1.1rem;
       color: var(--text-muted);
@@ -315,7 +395,13 @@
       margin-bottom: 2rem;
       max-width: 480px;
     }
-    .hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+    .hero-actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
     .hero-note {
       margin-top: 0.75rem;
       font-size: 0.78rem;
@@ -328,8 +414,9 @@
       border: 1px solid var(--border);
       border-radius: 14px;
       overflow: hidden;
-      box-shadow: var(--shadow-card), 0 0 1px rgba(255,255,255,0.05) inset;
+      box-shadow: var(--shadow-card), 0 0 1px rgba(255, 255, 255, 0.05) inset;
     }
+
     .terminal-titlebar {
       display: flex;
       align-items: center;
@@ -338,10 +425,25 @@
       background: var(--surface-2);
       border-bottom: 1px solid var(--border);
     }
-    .terminal-dot { width: 10px; height: 10px; border-radius: 50%; }
-    .terminal-dot.r { background: #ef4444; }
-    .terminal-dot.y { background: #eab308; }
-    .terminal-dot.g { background: #22c55e; }
+
+    .terminal-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .terminal-dot.r {
+      background: #ef4444;
+    }
+
+    .terminal-dot.y {
+      background: #eab308;
+    }
+
+    .terminal-dot.g {
+      background: #22c55e;
+    }
+
     .terminal-title {
       flex: 1;
       text-align: center;
@@ -349,19 +451,42 @@
       color: var(--text-dim);
       font-family: var(--mono);
     }
+
     .terminal-body {
       padding: 1.25rem;
       font-family: var(--mono);
       font-size: 0.78rem;
       line-height: 1.85;
     }
-    .t-prompt { color: var(--accent); }
-    .t-cmd { color: var(--text); }
-    .t-out { color: var(--text-muted); }
-    .t-agent { color: var(--purple); }
-    .t-ok { color: var(--green); }
-    .t-dim { color: var(--text-dim); }
-    .t-warn { color: var(--amber); }
+
+    .t-prompt {
+      color: var(--accent);
+    }
+
+    .t-cmd {
+      color: var(--text);
+    }
+
+    .t-out {
+      color: var(--text-muted);
+    }
+
+    .t-agent {
+      color: var(--purple);
+    }
+
+    .t-ok {
+      color: var(--green);
+    }
+
+    .t-dim {
+      color: var(--text-dim);
+    }
+
+    .t-warn {
+      color: var(--amber);
+    }
+
     .t-badge {
       display: inline-block;
       padding: 0.1rem 0.45rem;
@@ -369,36 +494,57 @@
       font-size: 0.65rem;
       font-weight: 600;
     }
-    .t-b-claude { background: rgba(167,139,250,0.15); color: #a78bfa; }
-    .t-b-aider { background: rgba(34,197,94,0.15); color: #22c55e; }
-    .t-b-codex { background: rgba(245,158,11,0.15); color: #f59e0b; }
+
+    .t-b-claude {
+      background: rgba(167, 139, 250, 0.15);
+      color: #a78bfa;
+    }
+
+    .t-b-aider {
+      background: rgba(34, 197, 94, 0.15);
+      color: #22c55e;
+    }
+
+    .t-b-codex {
+      background: rgba(245, 158, 11, 0.15);
+      color: #f59e0b;
+    }
 
     /* -- Problem section -- */
-    .problem { border-top: 1px solid var(--border); }
+    .problem {
+      border-top: 1px solid var(--border);
+    }
+
     .problem-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 4rem;
       align-items: start;
     }
+
     .problem-card {
       padding: 2.5rem;
       border-radius: 14px;
       border: 1px solid var(--border);
       background: var(--surface);
     }
+
     .problem-card h3 {
       font-size: 1.1rem;
       font-weight: 600;
       margin-bottom: 1rem;
       color: var(--red);
     }
+
     .problem-card p {
       font-size: 0.95rem;
       color: var(--text-muted);
       line-height: 1.7;
     }
-    .solution-card h3 { color: var(--green) !important; }
+
+    .solution-card h3 {
+      color: var(--green) !important;
+    }
 
     /* -- Features -- */
     .features-grid {
@@ -407,6 +553,7 @@
       gap: 1.25rem;
       margin-top: 3rem;
     }
+
     .feature-card {
       padding: 2rem;
       border-radius: 14px;
@@ -414,13 +561,16 @@
       background: var(--surface);
       transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
     }
+
     .feature-card:hover {
       border-color: rgba(6, 182, 212, 0.2);
-      box-shadow: 0 8px 40px rgba(0,0,0,0.2);
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
       transform: translateY(-2px);
     }
+
     .feature-icon {
-      width: 40px; height: 40px;
+      width: 40px;
+      height: 40px;
       border-radius: 10px;
       display: flex;
       align-items: center;
@@ -428,20 +578,39 @@
       margin-bottom: 1rem;
       font-size: 1.1rem;
     }
-    .feature-icon.cyan { background: var(--accent-glow); border: 1px solid rgba(6,182,212,0.15); }
-    .feature-icon.green { background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.15); }
-    .feature-icon.purple { background: rgba(167,139,250,0.1); border: 1px solid rgba(167,139,250,0.15); }
-    .feature-icon.amber { background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.15); }
+
+    .feature-icon.cyan {
+      background: var(--accent-glow);
+      border: 1px solid rgba(6, 182, 212, 0.15);
+    }
+
+    .feature-icon.green {
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(34, 197, 94, 0.15);
+    }
+
+    .feature-icon.purple {
+      background: rgba(167, 139, 250, 0.1);
+      border: 1px solid rgba(167, 139, 250, 0.15);
+    }
+
+    .feature-icon.amber {
+      background: rgba(245, 158, 11, 0.1);
+      border: 1px solid rgba(245, 158, 11, 0.15);
+    }
+
     .feature-card h3 {
       font-size: 0.95rem;
       font-weight: 600;
       margin-bottom: 0.5rem;
     }
+
     .feature-card p {
       font-size: 0.85rem;
       color: var(--text-muted);
       line-height: 1.6;
     }
+
     .feature-tag {
       display: inline-block;
       margin-top: 0.75rem;
@@ -461,6 +630,7 @@
       gap: 1.5rem;
       margin-top: 3rem;
     }
+
     .persona-card {
       padding: 2.75rem;
       border-radius: 16px;
@@ -471,11 +641,13 @@
       color: inherit;
       display: block;
     }
+
     .persona-card:hover {
       border-color: var(--border-hover);
-      box-shadow: 0 12px 48px rgba(0,0,0,0.25);
+      box-shadow: 0 12px 48px rgba(0, 0, 0, 0.25);
       transform: translateY(-3px);
     }
+
     .persona-card .persona-badge {
       display: inline-block;
       padding: 0.25rem 0.75rem;
@@ -487,24 +659,38 @@
       letter-spacing: 0.05em;
       margin-bottom: 1.25rem;
     }
-    .persona-card.dev .persona-badge { background: var(--accent-glow); color: var(--accent); border: 1px solid rgba(6,182,212,0.2); }
-    .persona-card.ent .persona-badge { background: rgba(245,158,11,0.1); color: var(--amber); border: 1px solid rgba(245,158,11,0.2); }
+
+    .persona-card.dev .persona-badge {
+      background: var(--accent-glow);
+      color: var(--accent);
+      border: 1px solid rgba(6, 182, 212, 0.2);
+    }
+
+    .persona-card.ent .persona-badge {
+      background: rgba(245, 158, 11, 0.1);
+      color: var(--amber);
+      border: 1px solid rgba(245, 158, 11, 0.2);
+    }
+
     .persona-card h3 {
       font-size: 1.35rem;
       font-weight: 700;
       margin-bottom: 0.75rem;
       letter-spacing: -0.02em;
     }
+
     .persona-card p {
       font-size: 0.95rem;
       color: var(--text-muted);
       line-height: 1.7;
       margin-bottom: 1.25rem;
     }
+
     .persona-card .persona-features {
       list-style: none;
       margin-bottom: 1.5rem;
     }
+
     .persona-card .persona-features li {
       font-size: 0.85rem;
       color: var(--text-muted);
@@ -512,6 +698,7 @@
       padding-left: 1.25rem;
       position: relative;
     }
+
     .persona-card .persona-features li::before {
       content: '';
       position: absolute;
@@ -521,8 +708,15 @@
       height: 6px;
       border-radius: 50%;
     }
-    .persona-card.dev .persona-features li::before { background: var(--accent); }
-    .persona-card.ent .persona-features li::before { background: var(--amber); }
+
+    .persona-card.dev .persona-features li::before {
+      background: var(--accent);
+    }
+
+    .persona-card.ent .persona-features li::before {
+      background: var(--amber);
+    }
+
     .persona-link {
       font-size: 0.9rem;
       font-weight: 600;
@@ -530,8 +724,14 @@
       align-items: center;
       gap: 0.4rem;
     }
-    .persona-card.dev .persona-link { color: var(--accent); }
-    .persona-card.ent .persona-link { color: var(--amber); }
+
+    .persona-card.dev .persona-link {
+      color: var(--accent);
+    }
+
+    .persona-card.ent .persona-link {
+      color: var(--amber);
+    }
 
     /* -- Comparison table -- */
     .comparison-table {
@@ -540,11 +740,14 @@
       margin-top: 3rem;
       font-size: 0.875rem;
     }
-    .comparison-table th, .comparison-table td {
+
+    .comparison-table th,
+    .comparison-table td {
       padding: 1rem 1.25rem;
       text-align: left;
       border-bottom: 1px solid var(--border);
     }
+
     .comparison-table thead th {
       font-weight: 600;
       font-size: 0.8rem;
@@ -553,15 +756,44 @@
       letter-spacing: 0.05em;
       background: var(--surface);
     }
-    .comparison-table thead th:first-child { border-radius: 8px 0 0 0; }
-    .comparison-table thead th:last-child { border-radius: 0 8px 0 0; }
-    .comparison-table tbody td { color: var(--text-muted); }
-    .comparison-table tbody td:first-child { color: var(--text); font-weight: 500; }
-    .comparison-table .check { color: var(--green); font-weight: 600; }
-    .comparison-table .x { color: var(--text-dim); }
-    .comparison-table .partial { color: var(--amber); }
-    .comparison-table .ocean-col { background: rgba(6,182,212,0.04); }
-    .comparison-table .ocean-col.check { color: var(--accent); }
+
+    .comparison-table thead th:first-child {
+      border-radius: 8px 0 0 0;
+    }
+
+    .comparison-table thead th:last-child {
+      border-radius: 0 8px 0 0;
+    }
+
+    .comparison-table tbody td {
+      color: var(--text-muted);
+    }
+
+    .comparison-table tbody td:first-child {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .comparison-table .check {
+      color: var(--green);
+      font-weight: 600;
+    }
+
+    .comparison-table .x {
+      color: var(--text-dim);
+    }
+
+    .comparison-table .partial {
+      color: var(--amber);
+    }
+
+    .comparison-table .ocean-col {
+      background: rgba(6, 182, 212, 0.04);
+    }
+
+    .comparison-table .ocean-col.check {
+      color: var(--accent);
+    }
 
     /* -- Stats -- */
     .stats-row {
@@ -570,6 +802,7 @@
       gap: 1.5rem;
       margin-top: 3rem;
     }
+
     .stat-card {
       text-align: center;
       padding: 2.5rem 1.5rem;
@@ -577,6 +810,7 @@
       border: 1px solid var(--border);
       background: var(--surface);
     }
+
     .stat-value {
       font-size: 2rem;
       font-weight: 700;
@@ -584,6 +818,7 @@
       color: var(--accent);
       line-height: 1;
     }
+
     .stat-label {
       font-size: 0.8rem;
       color: var(--text-dim);
@@ -597,6 +832,7 @@
       gap: 0.75rem;
       margin-top: 2rem;
     }
+
     .agent-pill {
       padding: 0.6rem 1.4rem;
       border-radius: 100px;
@@ -607,49 +843,59 @@
       color: var(--text-muted);
       transition: border-color 0.2s, color 0.2s;
     }
+
     .agent-pill:hover {
       border-color: var(--accent);
       color: var(--text);
     }
 
     /* -- Getting started -- */
-    .getting-started { border-top: 1px solid var(--border); }
+    .getting-started {
+      border-top: 1px solid var(--border);
+    }
+
     .steps {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
       margin-top: 3rem;
     }
+
     .step {
       padding: 2rem;
       border-radius: 12px;
       border: 1px solid var(--border);
       background: var(--surface);
     }
+
     .step-number {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 32px; height: 32px;
+      width: 32px;
+      height: 32px;
       border-radius: 8px;
       background: var(--accent-glow);
-      border: 1px solid rgba(6,182,212,0.2);
+      border: 1px solid rgba(6, 182, 212, 0.2);
       color: var(--accent);
       font-family: var(--mono);
       font-size: 0.85rem;
       font-weight: 600;
       margin-bottom: 1rem;
     }
+
     .step h3 {
       font-size: 1rem;
       font-weight: 600;
       margin-bottom: 0.5rem;
     }
+
     .step p {
       font-size: 0.875rem;
       color: var(--text-muted);
       line-height: 1.6;
     }
+
     .step code {
       display: block;
       margin-top: 0.75rem;
@@ -662,12 +908,14 @@
       color: var(--accent);
       overflow-x: auto;
     }
+
     .keyboard-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 0.5rem;
       margin-top: 2rem;
     }
+
     .kb-item {
       display: flex;
       justify-content: space-between;
@@ -678,7 +926,11 @@
       border: 1px solid var(--border);
       font-size: 0.8rem;
     }
-    .kb-item span:first-child { color: var(--text-muted); }
+
+    .kb-item span:first-child {
+      color: var(--text-muted);
+    }
+
     .kb-item kbd {
       font-family: var(--mono);
       font-size: 0.72rem;
@@ -697,12 +949,14 @@
       padding: 6rem 2rem;
       border-top: 1px solid var(--border);
     }
+
     .cta-section h2 {
       font-size: clamp(1.75rem, 4vw, 2.5rem);
       font-weight: 700;
       letter-spacing: -0.02em;
       margin-bottom: 1rem;
     }
+
     .cta-section p {
       color: var(--text-muted);
       font-size: 1rem;
@@ -711,7 +965,13 @@
       margin-left: auto;
       margin-right: auto;
     }
-    .cta-actions { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+
+    .cta-actions {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
 
     /* -- Footer -- */
     footer {
@@ -721,25 +981,56 @@
       text-align: center;
       border-top: 1px solid var(--border);
     }
-    footer p { font-size: 0.8rem; color: var(--text-dim); }
+
+    footer p {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+    }
+
     footer a {
       color: var(--text-muted);
       text-decoration: none;
       transition: color 0.2s;
     }
-    footer a:hover { color: var(--text); }
+
+    footer a:hover {
+      color: var(--text);
+    }
 
     /* -- Responsive -- */
     @media (max-width: 1024px) {
-      .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .hero { padding-top: 9rem; }
-      .features-grid { grid-template-columns: repeat(2, 1fr); }
-      .steps { grid-template-columns: 1fr; }
-      .comparison-table { font-size: 0.8rem; }
-      .comparison-table th, .comparison-table td { padding: 0.75rem 0.75rem; }
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .hero {
+        padding-top: 9rem;
+      }
+
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .comparison-table {
+        font-size: 0.8rem;
+      }
+
+      .comparison-table th,
+      .comparison-table td {
+        padding: 0.75rem 0.75rem;
+      }
     }
+
     @media (max-width: 768px) {
-      .nav-links { display: none; }
+      .nav-links {
+        display: none;
+      }
+
       .nav-links.open {
         display: flex;
         flex-direction: column;
@@ -752,25 +1043,68 @@
         padding: 1rem 2rem;
         gap: 1rem;
       }
-      .mobile-toggle { display: block; }
-      .hero { padding: 8rem 1.5rem 3rem; }
-      .hero h1 { font-size: 2rem; }
-      .features-grid { grid-template-columns: 1fr; }
-      .persona-cards { grid-template-columns: 1fr; }
-      .problem-grid { grid-template-columns: 1fr; }
-      .stats-row { grid-template-columns: repeat(2, 1fr); }
-      .section { padding: 4rem 0; }
-      .comparison-wrapper { overflow-x: auto; }
+
+      .mobile-toggle {
+        display: block;
+      }
+
+      .hero {
+        padding: 8rem 1.5rem 3rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .persona-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .problem-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .section {
+        padding: 4rem 0;
+      }
+
+      .comparison-wrapper {
+        overflow-x: auto;
+      }
     }
+
     @media (max-width: 375px) {
-      .hero h1 { font-size: 1.75rem; }
-      .container { padding: 0 1rem; }
+      .hero h1 {
+        font-size: 1.75rem;
+      }
+
+      .container {
+        padding: 0 1rem;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .reveal { opacity: 1; transform: none; transition: none; }
-      html { scroll-behavior: auto; }
-      .hero-badge .dot { animation: none; }
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      .hero-badge .dot {
+        animation: none;
+      }
     }
   </style>
 </head>
@@ -783,20 +1117,34 @@
       <img src="favicon.png" alt="Ocean" />
       Ocean
     </a>
-    <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle navigation">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')"
+      aria-label="Toggle navigation">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6" />
+        <line x1="3" y1="12" x2="21" y2="12" />
+        <line x1="3" y1="18" x2="21" y2="18" />
+      </svg>
     </button>
     <div class="nav-links">
       <a href="for-developers.html">Developers</a>
       <a href="for-enterprise.html">Enterprise</a>
       <a href="vision.html">Vision</a>
-      <a href="https://viveky259259.github.io/ocean-releases" target="_blank" rel="noopener">Docs</a>
+      <a href="https://docs.getocean.dev">Documentation</a>
       <a href="https://github.com/viveky259259/ocean-releases" target="_blank" rel="noopener">GitHub</a>
       <button id="theme-toggle" class="theme-toggle" aria-label="Toggle color theme" title="Toggle theme">
-        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="4" />
+          <path
+            d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+        </svg>
       </button>
-      <a href="https://github.com/viveky259259/ocean-releases/releases" target="_blank" rel="noopener" class="btn btn-primary nav-cta">Download</a>
+      <a href="https://github.com/viveky259259/ocean-releases/releases" target="_blank" rel="noopener"
+        class="btn btn-primary nav-cta">Download</a>
     </div>
   </nav>
 
@@ -809,15 +1157,18 @@
           Now available for macOS
         </div>
         <h1>The native platform<br>for <span class="gradient">AI agents</span></h1>
-        <p class="hero-desc">Run Claude Code, Codex, Aider, and Cursor in parallel isolated sessions. Ocean merges the results, resolves conflicts, and ships to PR &mdash; all from one app.</p>
+        <p class="hero-desc">Run Claude Code, Codex, Aider, and Cursor in parallel isolated sessions. Ocean merges the
+          results, resolves conflicts, and ships to PR &mdash; all from one app.</p>
         <div class="hero-actions">
-          <a href="https://github.com/viveky259259/ocean-releases/releases" target="_blank" rel="noopener" class="btn btn-primary">Download for macOS</a>
+          <a href="https://github.com/viveky259259/ocean-releases/releases" target="_blank" rel="noopener"
+            class="btn btn-primary">Download for macOS</a>
           <a href="#features" class="btn btn-secondary">See features</a>
         </div>
         <p style="margin-top:1rem;font-size:0.85rem;color:var(--accent);font-weight:500">
           Beta users and beta teams get Ocean Platform <strong>free forever</strong>.
         </p>
-        <p class="hero-note">macOS (Apple Silicon &amp; Intel) &middot; Free during beta &middot; <span style="color:var(--accent)">Windows and Linux coming soon</span></p>
+        <p class="hero-note">macOS (Apple Silicon &amp; Intel) &middot; Free during beta &middot; <span
+            style="color:var(--accent)">Windows and Linux coming soon</span></p>
       </div>
       <div>
         <div class="terminal-window">
@@ -831,21 +1182,21 @@
           <div class="terminal-body">
             <div><span class="t-dim">SESSION 1</span> <span class="t-badge t-b-claude">Claude</span></div>
             <div><span class="t-prompt">~/api $</span> <span class="t-cmd">claude "refactor auth to JWT"</span></div>
-            <div><span class="t-agent">  Working...</span> <span class="t-dim">auth.ts, middleware.ts</span></div>
+            <div><span class="t-agent"> Working...</span> <span class="t-dim">auth.ts, middleware.ts</span></div>
             <div>&nbsp;</div>
             <div><span class="t-dim">SESSION 2</span> <span class="t-badge t-b-codex">Codex</span></div>
             <div><span class="t-prompt">~/api $</span> <span class="t-cmd">codex "add rate limiting"</span></div>
-            <div><span class="t-agent">  Working...</span> <span class="t-dim">routes.ts, config.ts</span></div>
+            <div><span class="t-agent"> Working...</span> <span class="t-dim">routes.ts, config.ts</span></div>
             <div>&nbsp;</div>
             <div><span class="t-dim">SESSION 3</span> <span class="t-badge t-b-aider">Aider</span></div>
             <div><span class="t-prompt">~/api $</span> <span class="t-cmd">aider "add request logging"</span></div>
-            <div><span class="t-agent">  Working...</span> <span class="t-dim">middleware.ts, logger.ts</span></div>
+            <div><span class="t-agent"> Working...</span> <span class="t-dim">middleware.ts, logger.ts</span></div>
             <div>&nbsp;</div>
-            <div><span class="t-warn">  conflict: middleware.ts (lines 42-58)</span></div>
-            <div><span class="t-ok">  auto-resolved: disjoint hunks merged</span></div>
+            <div><span class="t-warn"> conflict: middleware.ts (lines 42-58)</span></div>
+            <div><span class="t-ok"> auto-resolved: disjoint hunks merged</span></div>
             <div>&nbsp;</div>
             <div><span class="t-prompt">~/api $</span> <span class="t-cmd">Cmd+Shift+S</span></div>
-            <div><span class="t-ok">  PR #47 created &middot; 3 sessions &rarr; 1 pull request</span></div>
+            <div><span class="t-ok"> PR #47 created &middot; 3 sessions &rarr; 1 pull request</span></div>
           </div>
         </div>
       </div>
@@ -858,13 +1209,23 @@
       <div class="problem-grid reveal">
         <div class="problem-card">
           <h3>The problem</h3>
-          <p>You're working across Claude Code in one terminal, Aider in another, Codex on a different platform. You &mdash; the developer &mdash; pay the context-switching cost every time you jump between them. Where was that agent? What did it change? What's the current state?</p>
-          <p style="margin-top:1rem;">And when you hand a task from one agent to another, the new agent starts cold. It has no context of what the previous one did, what decisions were made, or what files were touched. Every handoff is a context loss. Your mental model becomes the only bridge &mdash; and it doesn't scale.</p>
+          <p>You're working across Claude Code in one terminal, Aider in another, Codex on a different platform. You
+            &mdash; the developer &mdash; pay the context-switching cost every time you jump between them. Where was
+            that agent? What did it change? What's the current state?</p>
+          <p style="margin-top:1rem;">And when you hand a task from one agent to another, the new agent starts cold. It
+            has no context of what the previous one did, what decisions were made, or what files were touched. Every
+            handoff is a context loss. Your mental model becomes the only bridge &mdash; and it doesn't scale.</p>
         </div>
         <div class="problem-card solution-card">
           <h3>Ocean's approach</h3>
-          <p>One platform for all your agents. No more switching between terminals, windows, and platforms. Every session is visible in one place &mdash; with agent status, file changes, and activity timeline side by side. Your attention stays in one app.</p>
-          <p style="margin-top:1rem;">Copy-on-write isolation means agents work on their own filesystem snapshots. The Session DAG tracks what each agent did and how work relates. When it's time to ship, hit <strong>Cmd+Shift+S</strong> &mdash; Ocean merges, resolves conflicts, and opens a PR. No context lost between you and your agents.</p>
+          <p>One platform for all your agents. No more switching between terminals, windows, and platforms. Every
+            session is visible in one place &mdash; with agent status, file changes, and activity timeline side by side.
+            Your attention stays in one app.</p>
+          <p style="margin-top:1rem;">Copy-on-write isolation means agents work on their own filesystem snapshots. The
+            Session DAG tracks what each agent did and how work relates. When it's time to ship, hit
+            <strong>Cmd+Shift+S</strong> &mdash; Ocean merges, resolves conflicts, and opens a PR. No context lost
+            between you and your agents.
+          </p>
         </div>
       </div>
     </div>
@@ -882,109 +1243,161 @@
       <div class="features-grid">
         <div class="feature-card reveal">
           <div class="feature-icon cyan">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2">
+              <rect x="3" y="3" width="7" height="7" rx="1" />
+              <rect x="14" y="3" width="7" height="7" rx="1" />
+              <rect x="3" y="14" width="7" height="7" rx="1" />
+              <rect x="14" y="14" width="7" height="7" rx="1" />
+            </svg>
           </div>
           <h3>Copy-on-Write Isolation</h3>
-          <p>Each session gets an APFS clone. Agents modify files independently. Zero-cost until writes diverge. No Docker, no VMs.</p>
+          <p>Each session gets an APFS clone. Agents modify files independently. Zero-cost until writes diverge. No
+            Docker, no VMs.</p>
           <span class="feature-tag">~50ms spawn</span>
         </div>
 
         <div class="feature-card reveal">
           <div class="feature-icon cyan">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="3"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2">
+              <path d="M12 3v18M3 12h18" />
+              <circle cx="12" cy="12" r="3" />
+            </svg>
           </div>
           <h3>3-Way Merge + AI Resolution</h3>
-          <p>Real-time conflict detection. Base/ours/theirs comparison. Hunk-level resolution. Or let Claude merge it for you in one click.</p>
+          <p>Real-time conflict detection. Base/ours/theirs comparison. Hunk-level resolution. Or let Claude merge it
+            for you in one click.</p>
           <span class="feature-tag">26-step pipeline</span>
         </div>
 
         <div class="feature-card reveal">
           <div class="feature-icon cyan">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4M10 17l5-5-5-5M13 12H3"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2">
+              <path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4M10 17l5-5-5-5M13 12H3" />
+            </svg>
           </div>
           <h3>Ship to PR</h3>
-          <p>Merge sessions, generate commits, and open a pull request. Multiple agents, one clean PR. Cmd+Shift+S and it's live.</p>
+          <p>Merge sessions, generate commits, and open a pull request. Multiple agents, one clean PR. Cmd+Shift+S and
+            it's live.</p>
           <span class="feature-tag">Cmd+Shift+S</span>
         </div>
 
         <div class="feature-card reveal">
           <div class="feature-icon purple">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 6v6l4 2" />
+            </svg>
           </div>
           <h3>Agent Detection</h3>
-          <p>Automatically detects Claude, Codex, Aider, Cursor, Copilot, Cody, Gemini, and Devin. Status badges, health metrics, and waiting notifications.</p>
+          <p>Automatically detects Claude, Codex, Aider, Cursor, Copilot, Cody, Gemini, and Devin. Status badges, health
+            metrics, and waiting notifications.</p>
           <span class="feature-tag">8 agents</span>
         </div>
 
         <div class="feature-card reveal">
           <div class="feature-icon purple">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" />
+              <path d="M8 21h8M12 17v4" />
+            </svg>
           </div>
           <h3>Claude Native (A2UI)</h3>
-          <p>Rich interactive UI rendered inline in the terminal. Buttons, cards, forms, tables, diffs, and progress bars &mdash; directly from Claude agents.</p>
+          <p>Rich interactive UI rendered inline in the terminal. Buttons, cards, forms, tables, diffs, and progress
+            bars &mdash; directly from Claude agents.</p>
           <span class="feature-tag">OSC protocol</span>
         </div>
 
         <div class="feature-card reveal">
           <div class="feature-icon purple">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2"><circle cx="5" cy="6" r="3"/><path d="M5 9v6"/><circle cx="5" cy="18" r="3"/><circle cx="19" cy="6" r="3"/><path d="M19 9v6"/><circle cx="19" cy="18" r="3"/><path d="M8 6h8M8 18h8"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2">
+              <circle cx="5" cy="6" r="3" />
+              <path d="M5 9v6" />
+              <circle cx="5" cy="18" r="3" />
+              <circle cx="19" cy="6" r="3" />
+              <path d="M19 9v6" />
+              <circle cx="19" cy="18" r="3" />
+              <path d="M8 6h8M8 18h8" />
+            </svg>
           </div>
           <h3>Session DAG</h3>
-          <p>Sessions form a directed acyclic graph. Spawn children that inherit parent state. Visualize how work branches and merges.</p>
+          <p>Sessions form a directed acyclic graph. Spawn children that inherit parent state. Visualize how work
+            branches and merges.</p>
           <span class="feature-tag">Cmd+Shift+G</span>
         </div>
 
         <div class="feature-card reveal">
           <div class="feature-icon green">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2">
+              <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
+              <line x1="4" y1="22" x2="4" y2="15" />
+            </svg>
           </div>
           <h3>Workflow Engine</h3>
-          <p>Visual DAG editor for multi-step task automation. TOML-based definitions. Event triggers for git.push, pr.opened, schedule.daily, and more.</p>
+          <p>Visual DAG editor for multi-step task automation. TOML-based definitions. Event triggers for git.push,
+            pr.opened, schedule.daily, and more.</p>
           <span class="feature-tag">event-driven</span>
         </div>
 
         <div class="feature-card reveal">
           <div class="feature-icon green">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+            </svg>
           </div>
           <h3>Plugin System</h3>
-          <p>Three-tier extensibility: MCP servers, WASM sandbox, and native Rust plugins. Permission-based access. Plugin store built in.</p>
+          <p>Three-tier extensibility: MCP servers, WASM sandbox, and native Rust plugins. Permission-based access.
+            Plugin store built in.</p>
           <span class="feature-tag">MCP + WASM + Native</span>
         </div>
 
         <div class="feature-card reveal">
           <div class="feature-icon green">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
+            </svg>
           </div>
           <h3>Teams &amp; Relay</h3>
-          <p>Real-time team sync via relay server. Shared workspaces with role-based access. WebSocket presence. JWT tokens secured in macOS Keychain.</p>
+          <p>Real-time team sync via relay server. Shared workspaces with role-based access. WebSocket presence. JWT
+            tokens secured in macOS Keychain.</p>
           <span class="feature-tag">RBAC</span>
         </div>
 
         <div class="feature-card reveal">
           <div class="feature-icon amber">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
           </div>
           <h3>Audit Log</h3>
-          <p>Immutable record of every operation. JSONL export for compliance. Filter by session, workspace, git, filesystem, or config events.</p>
+          <p>Immutable record of every operation. JSONL export for compliance. Filter by session, workspace, git,
+            filesystem, or config events.</p>
           <span class="feature-tag">compliance-ready</span>
         </div>
 
         <div class="feature-card reveal">
           <div class="feature-icon amber">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2">
+              <line x1="12" y1="1" x2="12" y2="23" />
+              <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
+            </svg>
           </div>
           <h3>Usage Quotas &amp; Budget</h3>
-          <p>Track token spend per session. Set budget limits with alerts at 50%, 75%, and 100%. Daily and monthly period tracking. Voice notifications for budget events.</p>
+          <p>Track token spend per session. Set budget limits with alerts at 50%, 75%, and 100%. Daily and monthly
+            period tracking. Voice notifications for budget events.</p>
           <span class="feature-tag">per-session tracking</span>
         </div>
 
         <div class="feature-card reveal">
           <div class="feature-icon amber">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+            </svg>
           </div>
           <h3>Observability</h3>
-          <p>CPU, memory, disk, network in the status bar. Agent dashboard with token usage and costs. Process monitoring. Activity timeline across all sessions.</p>
+          <p>CPU, memory, disk, network in the status bar. Agent dashboard with token usage and costs. Process
+            monitoring. Activity timeline across all sessions.</p>
           <span class="feature-tag">real-time</span>
         </div>
       </div>
@@ -1026,7 +1439,8 @@
         <a href="for-developers.html" class="persona-card dev reveal">
           <span class="persona-badge">For Developers</span>
           <h3>Your agents deserve a real platform</h3>
-          <p>Stop context-switching between terminals, platforms, and agents. Ocean isolates their work, merges their output, and ships the result.</p>
+          <p>Stop context-switching between terminals, platforms, and agents. Ocean isolates their work, merges their
+            output, and ships the result.</p>
           <ul class="persona-features">
             <li>COW isolation per session</li>
             <li>Claude Native inline UI</li>
@@ -1039,7 +1453,8 @@
         <a href="for-enterprise.html" class="persona-card ent reveal">
           <span class="persona-badge">For Enterprise</span>
           <h3>Scale AI agents without the chaos</h3>
-          <p>Your developers are already using AI agents. Give them a platform that makes it productive, auditable, and safe.</p>
+          <p>Your developers are already using AI agents. Give them a platform that makes it productive, auditable, and
+            safe.</p>
           <ul class="persona-features">
             <li>Immutable audit log with JSONL export</li>
             <li>Usage quotas and budget controls</li>
@@ -1084,7 +1499,8 @@
       <div class="reveal">
         <span class="section-label">Compatibility</span>
         <h2 class="section-title">Works with the agents you already use</h2>
-        <p class="section-desc">Ocean detects and monitors AI coding agents running in your sessions. No configuration needed.</p>
+        <p class="section-desc">Ocean detects and monitors AI coding agents running in your sessions. No configuration
+          needed.</p>
       </div>
       <div class="agent-pills reveal">
         <span class="agent-pill">Claude Code</span>
@@ -1129,7 +1545,8 @@
 
       <div class="reveal" style="margin-top:2.5rem">
         <p style="font-size:0.95rem;color:var(--text-muted);line-height:1.7">
-          Every shortcut in Ocean is <strong style="color:var(--text)">fully customizable</strong> &mdash; rebind any command to match your muscle memory from iTerm, Warp, VS Code, or anywhere else.
+          Every shortcut in Ocean is <strong style="color:var(--text)">fully customizable</strong> &mdash; rebind any
+          command to match your muscle memory from iTerm, Warp, VS Code, or anywhere else.
         </p>
       </div>
     </div>
@@ -1138,9 +1555,12 @@
   <!-- Bottom CTA -->
   <section class="cta-section">
     <h2>Ready to run agents the right way?</h2>
-    <p>Ocean is free during beta &mdash; and beta users and beta teams keep Ocean Platform <strong style="color:var(--accent)">free forever</strong>. Download now for macOS and see what multi-agent development feels like when the platform actually helps.</p>
+    <p>Ocean is free during beta &mdash; and beta users and beta teams keep Ocean Platform <strong
+        style="color:var(--accent)">free forever</strong>. Download now for macOS and see what multi-agent development
+      feels like when the platform actually helps.</p>
     <div class="cta-actions">
-      <a href="https://github.com/viveky259259/ocean-releases/releases" target="_blank" rel="noopener" class="btn btn-primary">Download for macOS</a>
+      <a href="https://github.com/viveky259259/ocean-releases/releases" target="_blank" rel="noopener"
+        class="btn btn-primary">Download for macOS</a>
     </div>
     <p style="margin-top:1rem;font-size:0.8rem;color:var(--text-dim)">Windows and Linux coming soon.</p>
   </section>
@@ -1152,14 +1572,15 @@
       <a href="for-developers.html">Developers</a> &middot;
       <a href="for-enterprise.html">Enterprise</a> &middot;
       <a href="vision.html">Vision</a> &middot;
-      <a href="https://viveky259259.github.io/ocean-releases" target="_blank" rel="noopener">Docs</a> &middot;
+      <a href="https://articles.getocean.dev">Articles</a> &middot;
+      <a href="https://docs.getocean.dev" target="_blank" rel="noopener">Documentation</a> &middot;
       <a href="https://github.com/viveky259259/ocean-releases" target="_blank" rel="noopener">GitHub</a> &middot;
       <a href="https://github.com/viveky259259/ocean-releases/releases" target="_blank" rel="noopener">Releases</a>
     </p>
   </footer>
 
   <script>
-    // Theme toggle (initial value is applied in <head> to avoid FOUC)
+    // Theme toggle
     document.getElementById('theme-toggle').addEventListener('click', () => {
       const next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
       document.documentElement.setAttribute('data-theme', next);

@@ -7,7 +7,8 @@
   <title>Vision — Ocean</title>
   <meta name="description"
     content="Why we are building Ocean and our belief in the future of multi-agent software development.">
-  <meta name="keywords" content="Ocean vision, multi-agent development, AI agents coordination, software development future, AI orchestration">
+  <meta name="keywords"
+    content="Ocean vision, multi-agent development, AI agents coordination, software development future, AI orchestration">
   <meta name="author" content="Ocean Team">
 
   <!-- Open Graph / Facebook -->
@@ -150,9 +151,20 @@
       border: none;
       transition: all 0.2s ease;
     }
-    .btn-primary { background: var(--text); color: var(--bg); }
-    .btn-primary:hover { background: #fff; box-shadow: 0 2px 12px rgba(255,255,255,0.1); }
-    .nav-cta { color: var(--bg) !important; }
+
+    .btn-primary {
+      background: var(--text);
+      color: var(--bg);
+    }
+
+    .btn-primary:hover {
+      background: #fff;
+      box-shadow: 0 2px 12px rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-cta {
+      color: var(--bg) !important;
+    }
 
     .mobile-toggle {
       display: none;
@@ -297,6 +309,7 @@
         display: none;
         gap: 1rem;
       }
+
       .nav-links.open {
         display: flex;
         flex-direction: column;
@@ -309,7 +322,10 @@
         padding: 1rem 2rem;
         gap: 1rem;
       }
-      .mobile-toggle { display: block; }
+
+      .mobile-toggle {
+        display: block;
+      }
     }
   </style>
 </head>
@@ -323,16 +339,22 @@
       <img src="favicon.png" alt="Ocean" />
       Ocean
     </a>
-    <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle navigation">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')"
+      aria-label="Toggle navigation">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6" />
+        <line x1="3" y1="12" x2="21" y2="12" />
+        <line x1="3" y1="18" x2="21" y2="18" />
+      </svg>
     </button>
     <div class="nav-links">
       <a href="for-developers.html">Developers</a>
       <a href="for-enterprise.html">Enterprise</a>
       <a href="vision.html" class="active">Vision</a>
-      <a href="https://viveky259259.github.io/ocean-releases" target="_blank" rel="noopener">Docs</a>
+      <a href="https://docs.getocean.dev">Documentation</a>
       <a href="https://github.com/viveky259259/ocean-releases" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://github.com/viveky259259/ocean-releases/releases" target="_blank" rel="noopener" class="btn btn-primary nav-cta">Download</a>
+      <a href="https://github.com/viveky259259/ocean-releases/releases" target="_blank" rel="noopener"
+        class="btn btn-primary nav-cta">Download</a>
     </div>
   </nav>
 
@@ -396,12 +418,15 @@
   <footer>
     <p>
       Ocean &mdash; Terminal for Agentic Development &middot;
-      <a href="https://viveky259259.github.io/ocean-releases">Docs</a> &middot;
+      <a href="/">Home</a> &middot;
+      <a href="https://docs.getocean.dev/articles.html">Articles</a> &middot;
+      <a href="https://docs.getocean.dev">Documentation</a> &middot;
       <a href="https://github.com/viveky259259/ocean-releases" target="_blank" rel="noopener">GitHub</a> &middot;
       <a href="https://github.com/viveky259259/ocean-releases/releases" target="_blank" rel="noopener">Releases</a>
     </p>
   </footer>
 
+  <script></script>
 </body>
 
 </html>
