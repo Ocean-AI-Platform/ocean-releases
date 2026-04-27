@@ -470,6 +470,51 @@
     color: #fff;
   }
 
+  .beta-note {
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--dim);
+  }
+
+  /* ── Concepts Grid ───────────────────────── */
+  .concepts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 24px;
+  }
+
+  .concept-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+
+  .concept-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+  }
+
+  .concept-icon {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+
+  .concept-card h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: var(--text);
+  }
+
+  .concept-card p {
+    font-size: 14px;
+    color: var(--muted);
+    margin: 0;
+    line-height: 1.6;
+  }
+
   /* ── Articles grid ───────────────────────── */
   .articles-grid {
     display: grid;
