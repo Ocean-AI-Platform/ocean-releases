@@ -4,11 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ocean Docs - Terminal for Agentic Development</title>
+  <title>Ocean Docs — The Native Platform for AI Agents</title>
   <meta name="description"
-    content="Documentation for Ocean, a desktop terminal built for developers who work with AI coding agents.">
+    content="Documentation for Ocean, the native platform for AI agents. Build, test, and deploy with agentic workflows.">
   <meta property="og:url" content="https://docs.getocean.dev">
-  <meta property="og:title" content="Ocean Docs - Terminal for Agentic Development">
+  <meta property="og:title" content="Ocean Docs — The Native Platform for AI Agents">
   <meta property="og:description"
     content="Detailed documentation for Ocean terminal features, shortcuts, and multi-agent workflows.">
   <meta property="og:image" content="https://getocean.dev/home.png">
@@ -16,7 +16,7 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://docs.getocean.dev">
-  <meta name="twitter:title" content="Ocean Docs - Terminal for Agentic Development">
+  <meta name="twitter:title" content="Ocean Docs — The Native Platform for AI Agents">
   <meta name="twitter:description"
     content="Detailed documentation for Ocean terminal features, shortcuts, and multi-agent workflows.">
   <meta name="twitter:image" content="https://getocean.dev/home.png">
@@ -51,7 +51,8 @@
     </div>
     <div class="nav-links" id="navLinks">
       <a href="https://getocean.dev">Home</a>
-      <a href="https://forms.gle/4RQFThD8KF6Vu1Su6" target="_blank" rel="noopener">Waitlist</a>
+      <a href="index.html" class="active">Docs</a>
+      <a href="articles.html">Articles</a>
       <a href="https://github.com/viveky259259/ocean-releases" target="_blank" rel="noopener">GitHub</a>
     </div>
   </nav>
@@ -147,8 +148,12 @@
       <h2 id="installation">Installation</h2>
       <h3>macOS (Apple Silicon)</h3>
       <ol>
-        <li>Download the latest release from the <a href="https://github.com/viveky259259/ocean-releases/releases"
-            target="_blank" rel="noopener">Releases page</a></li>
+        <li>
+          <div id="inlineDownload" style="margin: 12px 0;">
+            Download the latest release from the <a href="https://github.com/viveky259259/ocean-releases/releases"
+              target="_blank" rel="noopener">Releases page</a>
+          </div>
+        </li>
         <li>Extract the archive:
           <pre><code>tar -xzf Ocean_*_aarch64.app.tar.gz</code></pre>
         </li>
@@ -744,64 +749,11 @@
 
       <!-- Articles -->
       <h2 id="articles">Articles</h2>
-      <p>Understand Ocean from the perspective that matters to you. <a href="https://getocean.dev/articles"
+      <p>Understand Ocean from the perspective that matters to you. <a href="./articles.html"
           style="color:var(--accent)">Browse all articles &rarr;</a></p>
 
-      <div class="articles-grid">
-        <div class="article-card">
-          <h4><a href="https://github.com/viveky259259/ocean-releases/releases/tag/v0.9.5">What's New in v0.9.5</a></h4>
-          <div class="for">Release Notes &middot; April 6, 2026</div>
-          <p>Introducing new settings types for Agent APIs and Voice TTS, along with significant improvements to the
-            syncFromSource import workflow.</p>
-        </div>
-        <div class="article-card">
-          <h4><a href="https://github.com/viveky259259/ocean-releases/releases/tag/v0.9.4">What's New in v0.9.4</a></h4>
-          <div class="for">Release Notes &middot; April 3, 2026</div>
-          <p>Resolved Team ID mismatch crashes on signed builds by vendoring OpenSSL and hardened the release pipeline
-            for improved stability.</p>
-        </div>
-        <div class="article-card">
-          <h4><a href="https://viveky259259.github.io/ocean-releases/articles/ocean-v0-9-2-release">What's New in
-              v0.9.2</a></h4>
-          <div class="for">Release Notes &middot; April 3, 2026</div>
-          <p>Shell passthrough improvements, Ocean Agent API (MCP support), and critical security hardening.</p>
-        </div>
-        <div class="article-card">
-          <h4><a href="https://viveky259259.github.io/ocean-releases/articles/ocean-v0-9-1-release">What's New in
-              v0.9.1</a></h4>
-          <div class="for">Release Notes &middot; April 2, 2026</div>
-          <p>New Claude OAuth usage panel and fixes for PTY deadlocks and OAuth poller guards.</p>
-        </div>
-        <div class="article-card">
-          <h4><a href="https://viveky259259.github.io/ocean-releases/articles/ocean-v0-8-0-release">What's New in
-              v0.8.0</a></h4>
-          <div class="for">Release Notes &middot; April 1, 2026</div>
-          <p>Discard session changes feature, integrated file picker, and multiple git index auto-repair fixes.</p>
-        </div>
-        <div class="article-card">
-          <h4><a href="https://viveky259259.github.io/ocean-releases/articles/ocean-for-ai-developers">Ocean for AI
-              Developers</a></h4>
-          <div class="for">Featured Guide</div>
-          <p>Deep dive into COW isolation, conflict detection, and optimizing your Claude context UI workflow.</p>
-        </div>
-        <div class="article-card">
-          <h4><a href="https://viveky259259.github.io/ocean-releases/articles/ocean-for-architects">Ocean for
-              Architects</a></h4>
-          <div class="for">Architecture & Security</div>
-          <p>Explore the security model, system architecture, and performance budgets that drive Ocean.</p>
-        </div>
-        <div class="article-card">
-          <h4><a href="https://viveky259259.github.io/ocean-releases/articles/ocean-for-product-managers">Ocean for
-              Product Managers</a></h4>
-          <div class="for">Business & ROI</div>
-          <p>Understand the business impact, team visibility benefits, and cost comparison for your organization.</p>
-        </div>
-        <div class="article-card">
-          <h4><a href="https://viveky259259.github.io/ocean-releases/articles/ocean-for-enterprises">Ocean for
-              Enterprises</a></h4>
-          <div class="for">Governance & Scale</div>
-          <p>Learn about audit trails, managed configurations, and the ROI framework for engineering leadership.</p>
-        </div>
+      <div class="articles-grid" id="articlesGrid">
+        <!-- Dynamically injected via main.js -->
       </div>
 
       <hr>
@@ -858,7 +810,8 @@
           <div class="concept-card">
             <h3>Instant Recovery</h3>
             <p>If a session becomes unresponsive, hover over the tab in the sidebar and click the
-              <strong>Refresh</strong> icon. Ocean will restart the shell while keeping your command history intact.</p>
+              <strong>Refresh</strong> icon. Ocean will restart the shell while keeping your command history intact.
+            </p>
           </div>
           <div class="concept-card">
             <h3>Custom Environments</h3>
@@ -933,81 +886,37 @@
       <!-- Downloads -->
       <h2 id="downloads">Downloads</h2>
       <p>Get the latest version from the <a href="https://github.com/viveky259259/ocean-releases/releases"
-          target="_blank" rel="noopener">Releases page</a>.</p>
+          target="_blank" rel="noopener">Releases page</a> or download from here!</p>
+
+      <div id="latestDownload" style="margin: 24px 0 32px 0;">
+        <!-- Dynamically injected -->
+      </div>
 
       <div class="table-wrap">
-        <table>
+        <table id="downloadsTable">
           <thead>
             <tr>
               <th>Version</th>
               <th>Date</th>
               <th>Highlights</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td><span class="version-badge">v0.9.5</span></td>
-              <td>2026-04-06</td>
-              <td>RecordingFormat type, Agent API &amp; Voice TTS settings fields, syncFromSource import — 1,184 tests
-                passing</td>
-            </tr>
-            <tr>
-              <td><span class="version-badge">v0.9.4</span></td>
-              <td>2026-04-03</td>
-              <td>Vendor OpenSSL to fix Team ID mismatch crash, release pipeline hardening</td>
-            </tr>
-            <tr>
-              <td><span class="version-badge">v0.9.2</span></td>
-              <td>2026-04-03</td>
-              <td>Shell passthrough, Ocean Agent API (MCP), git fetch_remote, sync commands, security hardening, 660
-                Rust / 1034 frontend tests</td>
-            </tr>
-            <tr>
-              <td><span class="version-badge">v0.9.1</span></td>
-              <td>2026-04-02</td>
-              <td>Claude OAuth usage panel, PTY deadlock fix, OAuth poller guard fixes, E2E test suite restored</td>
-            </tr>
-            <tr>
-              <td><span class="version-badge">v0.8.0</span></td>
-              <td>2026-04-01</td>
-              <td>Discard session changes, view per-session diffs, file picker (Cmd+Option+F), git index auto-repair, 10
-                conflict/merge fixes</td>
-            </tr>
-            <tr>
-              <td><span class="version-badge">v0.7.1</span></td>
-              <td>2026-03-25</td>
-              <td>Context menus, merge &amp; ship workflow expansion, E2E test suite, Rust backend growth</td>
-            </tr>
-            <tr>
-              <td><span class="version-badge">v0.7.0</span></td>
-              <td>2026-03-24</td>
-              <td>Conflict resolution (26 stories), AI merge, file locks, stash, heatmap, dependency graph, port
-                forwarding, documentation</td>
-            </tr>
-            <tr>
-              <td><span class="version-badge">v0.6.0</span></td>
-              <td>2026-03-22</td>
-              <td>Git Visualizer, split indicators, 16 bug fixes</td>
-            </tr>
-            <tr>
-              <td><span class="version-badge">v0.5.0</span></td>
-              <td>2026-03-21</td>
-              <td>Ocean Sync backend, settings improvements</td>
-            </tr>
+            <!-- Dynamically injected -->
           </tbody>
         </table>
       </div>
 
-      <div style="margin-top:48px; padding-top:32px; border-top:1px solid var(--border); text-align:center;">
-        <p style="color:var(--dim); font-size:13px;">
-          Ocean &mdash; Terminal for Agentic Development<br>
+      <footer class="site-footer">
+        <p>
+          <span id="footerText"></span><br>
           <a href="https://docs.getocean.dev">docs.getocean.dev</a> &nbsp;&middot;&nbsp;
-          <a href="https://github.com/viveky259259/ocean-releases" style="color:var(--accent);">GitHub</a>
+          <a href="https://github.com/viveky259259/ocean-releases">GitHub</a>
           &nbsp;&middot;&nbsp;
-          <a href="https://forms.gle/4RQFThD8KF6Vu1Su6" style="color:var(--accent);" target="_blank" rel="noopener">Join
-            the Waitlist</a>
+          <a href="https://forms.gle/4RQFThD8KF6Vu1Su6" target="_blank" rel="noopener">Join the Waitlist</a>
         </p>
-      </div>
+      </footer>
 
     </main>
   </div>
