@@ -54,6 +54,13 @@ const AppStrings = {
 
 const AppArticles = [
   {
+    id: "gating-agent-workflows-with-mastra-evals",
+    tag: "Featured Guide",
+    title: "Don't Ship What You Can't Measure",
+    desc: "Gate agentic workflows on Mastra-backed evals: score an agent's output and fail the run unless it clears a bar — with a worked faithfulness example.",
+    date: "Featured",
+  },
+  {
     id: "ocean-v0-13-2-release",
     tag: "Release Notes",
     title: "What's New in Ocean v0.13.2",
