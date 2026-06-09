@@ -54,6 +54,13 @@ const AppStrings = {
 
 const AppArticles = [
   {
+    id: "parallel-agents-run-many-keep-the-best",
+    tag: "Featured Guide",
+    title: "Parallel Agents: Run Many, Keep the Best",
+    desc: "Why, when, and how to run agents in parallel in Ocean — pros, cons, and the spawn → broadcast → N-way diff → promote-winner workflow, with screenshots.",
+    date: "Featured",
+  },
+  {
     id: "gating-agent-workflows-with-mastra-evals",
     tag: "Featured Guide",
     title: "Don't Ship What You Can't Measure",
