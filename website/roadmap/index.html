@@ -8,267 +8,132 @@
   <meta name="googlebot" content="noindex, nofollow, noarchive">
   <title>Ocean Next 6 Months Plan</title>
   <meta name="description" content="Ocean internal six-month product plan.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
-    rel="stylesheet">
   <link rel="icon" type="image/png" href="../favicon.png">
   <style>
-    * {
-      box-sizing: border-box;
+    :root {
+      color-scheme: light dark;
+      --page: #ffffff;
+      --text: #18181b;
+      --muted: #52525b;
+      --border: #e4e4e7;
+      --link: #0369a1;
+      --code: #f4f4f5;
     }
 
-    :root {
-      --bg: #09090b;
-      --surface: #111113;
-      --surface-2: #18181b;
-      --border: #27272f;
-      --text: #f4f4f5;
-      --muted: #a1a1aa;
-      --dim: #71717a;
-      --accent: #06b6d4;
-      --green: #34d399;
-      --amber: #fbbf24;
-      --red: #f87171;
-      --purple: #a78bfa;
-      --sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-      --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --page: #101014;
+        --text: #f4f4f5;
+        --muted: #a1a1aa;
+        --border: #27272a;
+        --link: #67e8f9;
+        --code: #18181b;
+      }
     }
 
     body {
       margin: 0;
-      font-family: var(--sans);
-      background:
-        radial-gradient(circle at 20% 0%, rgba(6, 182, 212, 0.16), transparent 34rem),
-        linear-gradient(180deg, #09090b 0%, #0d0d10 48%, #09090b 100%);
+      padding: 40px 20px 64px;
+      background: var(--page);
       color: var(--text);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
     }
 
     main {
-      width: min(1120px, calc(100% - 40px));
+      max-width: 860px;
       margin: 0 auto;
-      padding: 72px 0 96px;
     }
 
     header {
-      margin-bottom: 48px;
-      max-width: 860px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: baseline;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 14px;
+      margin-bottom: 30px;
     }
 
-    .eyebrow {
-      font-family: var(--mono);
-      color: var(--accent);
-      font-size: 12px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      margin-bottom: 16px;
+    header p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.2;
+      letter-spacing: 0;
+      margin: 1.6em 0 0.55em;
     }
 
     h1 {
-      margin: 0 0 18px;
-      max-width: 860px;
-      font-size: clamp(42px, 7vw, 76px);
-      line-height: 0.96;
-      letter-spacing: -0.05em;
+      font-size: clamp(2rem, 5vw, 3.3rem);
+      margin-top: 0;
     }
 
-    .lede {
-      max-width: 760px;
-      color: var(--muted);
-      font-size: clamp(18px, 2vw, 22px);
-      line-height: 1.55;
-      margin: 0;
+    h2 {
+      font-size: 1.55rem;
+      border-top: 1px solid var(--border);
+      padding-top: 1.2rem;
     }
 
-    .meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 26px;
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      border: 1px solid var(--border);
-      background: rgba(17, 17, 19, 0.72);
-      color: var(--muted);
-      border-radius: 999px;
-      padding: 8px 12px;
-      font-family: var(--mono);
-      font-size: 12px;
-    }
-
-    section {
-      margin-top: 28px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .grid.two {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .card {
-      border: 1px solid var(--border);
-      background: rgba(17, 17, 19, 0.78);
-      border-radius: 16px;
-      padding: 22px;
-      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.28);
-    }
-
-    .card h2,
-    .card h3 {
-      margin: 0 0 12px;
-      line-height: 1.15;
-      letter-spacing: -0.025em;
-    }
-
-    .card h2 {
-      font-size: 28px;
-    }
-
-    .card h3 {
-      font-size: 20px;
-    }
-
-    .progress {
-      color: var(--green);
-      font-family: var(--mono);
-      font-size: 13px;
-      margin-bottom: 12px;
+    h3 {
+      font-size: 1.18rem;
     }
 
     p {
-      color: var(--muted);
-      margin: 0 0 14px;
+      margin: 0 0 1rem;
     }
 
     ul {
-      padding-left: 20px;
-      margin: 0;
-      color: var(--muted);
+      padding-left: 1.35rem;
+      margin: 0 0 1.4rem;
     }
 
     li {
-      margin: 8px 0;
-    }
-
-    strong {
-      color: var(--text);
-      font-weight: 700;
+      margin: 0.35rem 0;
     }
 
     code {
-      font-family: var(--mono);
-      color: var(--text);
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 6px;
-      padding: 1px 5px;
+      background: var(--code);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.1rem 0.28rem;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
       font-size: 0.92em;
     }
 
-    .timeline {
-      display: grid;
-      gap: 16px;
+    .loading,
+    .error {
+      color: var(--muted);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      white-space: pre-wrap;
     }
 
-    .month {
-      display: grid;
-      grid-template-columns: 180px 1fr;
-      gap: 22px;
-      align-items: start;
-    }
-
-    .month-label {
-      position: sticky;
-      top: 24px;
-      border: 1px solid var(--border);
-      background: rgba(24, 24, 27, 0.78);
-      border-radius: 14px;
-      padding: 16px;
-    }
-
-    .month-label span {
-      display: block;
-      color: var(--accent);
-      font-family: var(--mono);
-      font-size: 12px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-
-    .month-label strong {
-      display: block;
-      font-size: 22px;
-      line-height: 1.08;
-    }
-
-    .muted {
-      color: var(--dim);
-    }
-
-    .metric-list {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 12px;
-      list-style: none;
-      padding: 0;
-    }
-
-    .metric-list li {
-      border: 1px solid var(--border);
-      background: rgba(24, 24, 27, 0.65);
-      border-radius: 14px;
-      padding: 14px;
-      margin: 0;
-    }
-
-    .non-goals {
-      columns: 2;
-      column-gap: 32px;
-    }
-
-    footer {
-      margin-top: 56px;
-      padding-top: 28px;
-      border-top: 1px solid var(--border);
-      color: var(--dim);
-      font-family: var(--mono);
-      font-size: 12px;
-    }
-
-    @media (max-width: 880px) {
-      main {
-        width: min(100% - 28px, 720px);
-        padding-top: 44px;
+    @media (max-width: 640px) {
+      body {
+        padding: 28px 16px 48px;
       }
 
-      .grid,
-      .grid.two,
-      .metric-list {
-        grid-template-columns: 1fr;
+      header {
+        display: block;
       }
 
-      .month {
-        grid-template-columns: 1fr;
-      }
-
-      .month-label {
-        position: static;
-      }
-
-      .non-goals {
-        columns: 1;
+      header p + p {
+        margin-top: 8px;
       }
     }
   </style>
@@ -277,181 +142,99 @@
 <body>
   <main>
     <header>
-      <div class="eyebrow">Ocean product plan</div>
-      <h1>Next 6 months</h1>
-      <p class="lede">
-        Ocean's near-term goal is to become the trusted way for developers and teams to turn
-        AI-agent work into validated, reviewable pull requests.
-      </p>
-      <div class="meta">
-        <span class="pill">Strategic wedge: Run Project -> Agent to PR -> Trusted PR</span>
-        <span class="pill">Execution: local-first</span>
-        <span class="pill">Team value: shared artifacts and policies</span>
-        <span class="pill">Indexing: disabled</span>
-      </div>
+      <p>Markdown reader</p>
+      <p><a href="roadmap.md">Open roadmap.md</a></p>
     </header>
-
-    <section class="grid two">
-      <article class="card">
-        <h2>Current starting point</h2>
-        <p>
-          Ocean already has a strong substrate: IDE shell, spec view, Agent Canvas,
-          workflow engine, PR runtime/view, onboarding v2, project understanding,
-          relay/RBAC, audit, diagnostics, usage tracking, and team skills.
-        </p>
-        <p>
-          The plan is mostly productizing and connecting existing pieces, not building
-          a brand-new platform from scratch.
-        </p>
-      </article>
-      <article class="card">
-        <h2>Six-month goal</h2>
-        <p>
-          Move from a trusted individual loop to a repeatable team platform, while
-          keeping most execution local-first.
-        </p>
-        <p>
-          Server-backed features focus on sharing team artifacts: specs, skills,
-          workflow templates, validation policies, PR visibility, and shared workspace metadata.
-        </p>
-      </article>
-    </section>
-
-    <section class="timeline">
-      <div class="month">
-        <div class="month-label">
-          <span>Month 1</span>
-          <strong>Run Project + Knowledge Context Pack</strong>
-        </div>
-        <article class="card">
-          <div class="progress">Already in place: ~55%</div>
-          <p><strong>Outcome:</strong> Ocean can open an existing repo, infer how it runs, and guide the user to a working local app or service. Agents receive useful project context automatically.</p>
-          <ul>
-            <li>Turn <code>project_understanding</code> into a local agent context pack.</li>
-            <li>Add <code>.ocean/knowledge.md</code> for explicit project context.</li>
-            <li>Detect setup, dev, build, test, lint, and typecheck commands.</li>
-            <li>Add machine readiness checks for runtimes, CLIs, env vars, services, and ports.</li>
-            <li>Connect project context to onboarding v2 and spec-to-agent launch.</li>
-            <li>Add run/test/build verification and a short project handbook preview.</li>
-          </ul>
-        </article>
-      </div>
-
-      <div class="month">
-        <div class="month-label">
-          <span>Month 2</span>
-          <strong>Agent to PR</strong>
-        </div>
-        <article class="card">
-          <div class="progress">Already in place: ~50%</div>
-          <p><strong>Outcome:</strong> A developer can launch agents from a spec, validate their changes locally, and create a PR with evidence attached.</p>
-          <ul>
-            <li>Polish spec-to-agent launch and saved agent presets.</li>
-            <li>Stabilize durable sessions and agent lifecycle events.</li>
-            <li>Tighten merge-to-commit and PR creation.</li>
-            <li>Add local validation runs for test, lint, typecheck, build, format, and security scan.</li>
-            <li>Store validation history, logs, status, duration, and command metadata.</li>
-            <li>Generate AI review summaries with cited diffs and validation evidence.</li>
-            <li>Add basic hybrid PR risk scoring.</li>
-          </ul>
-        </article>
-      </div>
-
-      <div class="month">
-        <div class="month-label">
-          <span>Month 3</span>
-          <strong>Trusted PR + Team Beta</strong>
-        </div>
-        <article class="card">
-          <div class="progress">Already in place: ~40%</div>
-          <p><strong>Outcome:</strong> A team can see agent-produced PRs, required checks, risk, and activity in Ocean. Collaboration starts with shared artifacts and policies.</p>
-          <ul>
-            <li>Read-only PR inbox/view with diffs, checks, branch state, review decision, AI summary, risk score, and validation results.</li>
-            <li>Required checks per workspace.</li>
-            <li>Team validation policies with advisory, override, and hard-block modes.</li>
-            <li>Audit/activity v0 for workspace, validation, PR, and policy events.</li>
-            <li>Shared artifact beta: specs, skills, workflow templates, validation policies, and shared workspace metadata.</li>
-            <li>Basic team identity/invitations and billing skeleton for design partners.</li>
-          </ul>
-        </article>
-      </div>
-
-      <div class="month">
-        <div class="month-label">
-          <span>Months 4-5</span>
-          <strong>Team Artifacts + Workflow Validation</strong>
-        </div>
-        <article class="card">
-          <div class="progress">Already in place: ~45%</div>
-          <p><strong>Outcome:</strong> Teams standardize how agents work through shared specs, skills, workflow templates, and validation policies. Workflows become the repeatable validation and maintenance layer.</p>
-          <ul>
-            <li>Shared workspace metadata and team activity dashboard.</li>
-            <li>Team project handbook backed by local context packs and shared <code>.ocean/knowledge.md</code>.</li>
-            <li>Shared skills and workflow templates as a primary Team feature.</li>
-            <li>Schedule triggers for local recurring workflows.</li>
-            <li>Workflow run history polish: last runs, logs, rerun, cancel, failure summaries.</li>
-            <li>Test-delta regression detection and known failure pattern memory.</li>
-            <li>Policy-driven review gates for promote, push, and PR creation.</li>
-          </ul>
-        </article>
-      </div>
-
-      <div class="month">
-        <div class="month-label">
-          <span>Month 6</span>
-          <strong>Paid Team Readiness</strong>
-        </div>
-        <article class="card">
-          <div class="progress">Already in place: ~25%</div>
-          <p><strong>Outcome:</strong> Ocean is ready for paid team pilots around trusted agent-produced PRs, without trying to be full enterprise, marketplace, or remote execution yet.</p>
-          <ul>
-            <li>Team billing and seat management v0.</li>
-            <li>Team dashboard for workspaces, PRs, failed validations, required checks, agent activity, and usage/cost summary.</li>
-            <li>Admin controls for members, roles, validation policies, and shared artifacts.</li>
-            <li>Usage analytics for agent runs, validation runs, PRs, AI summaries, failed runs, and spend estimates.</li>
-            <li>Optional remote visibility v0 for pilots: see sessions, workflows, logs, diffs, PR state, failures, and blockers.</li>
-            <li>Linux/Windows technical discovery, without committing to full parity in this window.</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <section class="grid two">
-      <article class="card">
-        <h2>Explicit non-goals for 6 months</h2>
-        <ul class="non-goals">
-          <li>Organization-wide knowledge graph.</li>
-          <li>Full remote bidirectional handoff/resume.</li>
-          <li>Full in-house PR review with line comments and approvals.</li>
-          <li>Plugin/workflow marketplaces.</li>
-          <li>Read-only mobile companion.</li>
-          <li>Broad Slack/Linear integrations.</li>
-          <li>A2UI external spec push.</li>
-          <li>Screenshot/performance regression as a general platform.</li>
-          <li>Full Linux/Windows parity.</li>
-          <li>Full enterprise package: SCIM, SIEM export, SLA packaging, self-hosted relay.</li>
-        </ul>
-      </article>
-
-      <article class="card">
-        <h2>North-star metrics</h2>
-        <ul class="metric-list">
-          <li>Time from repo open to running project.</li>
-          <li>Percent of agent changes validated before PR.</li>
-          <li>PRs created from Ocean with validation evidence.</li>
-          <li>Review time saved per PR.</li>
-          <li>Shared artifacts per team.</li>
-          <li>Required-check policies configured.</li>
-          <li>Paid pilot conversion.</li>
-          <li>AI spend per merged PR.</li>
-        </ul>
-      </article>
-    </section>
-
-    <footer>
-      Internal planning page. This page is intentionally not linked from public navigation and includes noindex metadata.
-    </footer>
+    <article id="content" class="loading">Loading roadmap.md...</article>
   </main>
+
+  <script>
+    const content = document.getElementById("content");
+
+    function escapeHtml(value) {
+      return value
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function renderInline(value) {
+      return escapeHtml(value)
+        .replace(/`([^`]+)`/g, "<code>$1</code>")
+        .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+        .replace(/_([^_]+)_/g, "<em>$1</em>")
+        .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+    }
+
+    function renderMarkdown(markdown) {
+      const lines = markdown.replace(/\r\n/g, "\n").split("\n");
+      let html = "";
+      let paragraph = [];
+      let inList = false;
+
+      function flushParagraph() {
+        if (!paragraph.length) return;
+        html += `<p>${renderInline(paragraph.join(" "))}</p>`;
+        paragraph = [];
+      }
+
+      function closeList() {
+        if (!inList) return;
+        html += "</ul>";
+        inList = false;
+      }
+
+      for (const line of lines) {
+        const heading = line.match(/^(#{1,3})\s+(.+)$/);
+        const listItem = line.match(/^-\s+(.+)$/);
+
+        if (!line.trim()) {
+          flushParagraph();
+          closeList();
+          continue;
+        }
+
+        if (heading) {
+          flushParagraph();
+          closeList();
+          const level = heading[1].length;
+          html += `<h${level}>${renderInline(heading[2])}</h${level}>`;
+          continue;
+        }
+
+        if (listItem) {
+          flushParagraph();
+          if (!inList) {
+            html += "<ul>";
+            inList = true;
+          }
+          html += `<li>${renderInline(listItem[1])}</li>`;
+          continue;
+        }
+
+        paragraph.push(line.trim());
+      }
+
+      flushParagraph();
+      closeList();
+      return html;
+    }
+
+    fetch("roadmap.md", { cache: "no-cache" })
+      .then((response) => {
+        if (!response.ok) throw new Error(`Unable to load roadmap.md (${response.status})`);
+        return response.text();
+      })
+      .then((markdown) => {
+        content.className = "";
+        content.innerHTML = renderMarkdown(markdown);
+      })
+      .catch((error) => {
+        content.className = "error";
+        content.textContent = error.message;
+      });
+  </script>
 </body>
 
 </html>
