@@ -1,6 +1,17 @@
 {
   "hosting": {
     "public": ".",
+    "headers": [
+      {
+        "source": "/roadmap/**",
+        "headers": [
+          {
+            "key": "X-Robots-Tag",
+            "value": "noindex, nofollow, noarchive"
+          }
+        ]
+      }
+    ],
     "ignore": [
       "firebase.json",
       "**/.*",
